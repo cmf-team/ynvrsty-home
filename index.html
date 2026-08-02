@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YNVRSTY — tuition-free education for people who build</title>
+  <meta name="description" content="YNVRSTY is an international, tuition-free education platform. Our first school is the Center of Mathematical Finance." />
+  <link rel="icon" type="image/png" href="assets/cmf-logo-white.png" />
+
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- No 'unsafe-inline' anywhere: every style lives in styles.css and the
+       script toggles classes rather than writing style attributes.
+       connect-src allows exactly one host — the Google Forms endpoint the
+       signup posts to. form-action is 'none' because the form never navigates;
+       signup.js always preventDefault()s and posts with fetch.
+       frame-ancestors is deliberately absent — browsers ignore it in a meta
+       tag, and GitHub Pages cannot set real HTTP headers. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src https://docs.google.com; base-uri 'self'; form-action 'none'; object-src 'none'" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <img class="brand-mark" src="assets/cmf-logo-white.png" alt="" width="30" height="30" />
+      <span class="brand-word">YNVRSTY</span>
+    </a>
+    <a class="btn btn-outline btn-sm" href="https://cmf.ynvrsty.com">Visit CMF <span aria-hidden="true">→</span></a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">Tuition-free · International · Impact-driven</span>
+      <h1 class="h-display h1 hero-headline">YNVRSTY</h1>
+      <p class="subhead">Rigorous education for people<br>who build things that matter</p>
+      <p class="lede">
+        YNVRSTY is an international, tuition-free education platform for people with
+        strong technical skills and high ethical standards. Our first school — the
+        Center of Mathematical Finance — has been training quants, researchers and
+        engineers since 2022. More schools are on the way.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#signup">Get notified <span aria-hidden="true">→</span></a>
+        <a class="btn btn-outline" href="https://cmf.ynvrsty.com">Explore CMF</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">/ 01 — What we stand for</span>
+      <div class="pillars">
+        <article class="pillar">
+          <span class="pillar-num mono">01</span>
+          <h2 class="h-display h4">Tuition-free, always</h2>
+          <p class="muted">
+            Talent is distributed evenly across the world; opportunity is not.
+            Every programme we run is free to the people who earn a place on it.
+          </p>
+        </article>
+        <article class="pillar">
+          <span class="pillar-num mono">02</span>
+          <h2 class="h-display h4">Taught by practitioners</h2>
+          <p class="muted">
+            Instructors with ten or more years in the field, building real projects
+            alongside students rather than lecturing at them.
+          </p>
+        </article>
+        <article class="pillar">
+          <span class="pillar-num mono">03</span>
+          <h2 class="h-display h4">Research that ships</h2>
+          <p class="muted">
+            Cohorts publish working code and papers under an open licence.
+            Our portfolio is public — read it before you decide to apply.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="signup">
+    <div class="container">
+      <div class="signup-card">
+        <span class="eyebrow">/ 02 — Early access</span>
+        <h2 class="h-display h2 signup-head">Know when the<br>next intake opens.</h2>
+        <p class="lede">
+          Leave your email and we will write to you once — when a school opens
+          applications. No newsletter, and we do not pass your address to anyone else.
+        </p>
+
+        <form class="signup-form" id="signup-form" novalidate>
+          <label class="sr-only" for="email">Email address</label>
+          <input
+            class="signup-input"
+            id="email"
+            name="email"
+            type="email"
+            inputmode="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            required />
+          <button class="btn btn-gold" id="signup-submit" type="submit">
+            Notify me <span aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <p class="signup-msg" id="signup-msg" role="status" aria-live="polite"></p>
+
+        <p class="signup-fine">
+          Your address is stored in a private spreadsheet we control and is used only
+          for that one announcement.
+        </p>
+
+        <noscript>
+          <p class="signup-msg is-err">
+            The signup form needs JavaScript. Write to
+            <a href="mailto:admissions@cmf.edu">admissions@cmf.edu</a> instead and we
+            will add you to the list.
+          </p>
+        </noscript>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section">
+    <div class="container">
+      <div class="school-card">
+        <div class="school-body">
+          <span class="eyebrow">/ 03 — Our first school</span>
+          <h2 class="h-display h3 school-head">Center of Mathematical Finance</h2>
+          <p class="muted">
+            Six schools running today — Quantitative Finance, HFT, Options, AI,
+            FinTech and Web3 — with a public portfolio of student research and a
+            community of practitioners behind it.
+          </p>
+        </div>
+        <a class="btn btn-gold" href="https://cmf.ynvrsty.com">
+          Visit CMF <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="mono footer-copy">© 2026 YNVRSTY · Impact-driven · International · Tuition-free</span>
+    <nav class="footer-links">
+      <a href="https://www.linkedin.com/school/cmf-ynvrsty">LinkedIn</a>
+      <a href="https://github.com/cmf-team">GitHub</a>
+      <a href="https://www.youtube.com/@CMF_YNVRSTY">YouTube</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="signup.js" defer></script>
+</body>
+</html>

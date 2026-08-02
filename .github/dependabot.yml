@@ -1,0 +1,11 @@
+version: 2
+updates:
+  # Actions are pinned to commit SHAs in the workflow, which is safe but goes
+  # stale silently. Dependabot bumps the SHAs (and the # vN comment) for us.
+  # There is no npm ecosystem here — the site has no dependencies.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "chore(ci)"
