@@ -14,8 +14,8 @@
 //
 // Leave them empty and the form renders visibly disabled — better than a box
 // that silently swallows addresses.
-const FORM_ID = '';
-const ENTRY_ID = '';
+const FORM_ID = '1FAIpQLSdBTXky9nIVgsv9Nmw0pgfeBAzjQMo244m_7JIivTB8v5x5pg';
+const ENTRY_ID = 'entry.871973488';
 
 const ENDPOINT = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
 
@@ -63,15 +63,14 @@ if (!FORM_ID || !ENTRY_ID) {
       // URLSearchParams keeps the content type CORS-safelisted, so no preflight
       // is attempted — a preflight would fail outright in no-cors mode.
       //
-      // redirect:'manual' stops the browser following a 3xx. Google records the
-      // response before it redirects, so nothing is lost — but the CSP checks
-      // redirect targets too, and connect-src lists only docs.google.com. If
-      // Google ever bounced this to another host, following it would raise a
-      // violation and surface as a false "could not reach the server".
+      // Redirects are followed (the default). Do NOT set redirect:'manual' here
+      // — combined with no-cors it throws TypeError in Chrome unconditionally,
+      // which surfaces as a false "could not reach the server" on every submit.
+      // The CSP does check redirect targets, but Google answers this POST on
+      // docs.google.com, which connect-src already allows.
       await fetch(ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',
-        redirect: 'manual',
         body: new URLSearchParams({ [ENTRY_ID]: email }),
       });
 
